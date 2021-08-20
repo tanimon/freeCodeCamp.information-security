@@ -15,6 +15,7 @@ app.use(
   })
 );
 app.use(helmet.dnsPrefetchControl());
+app.use(helmet.noCache());
 
 module.exports = app;
 const api = require('./server.js');
