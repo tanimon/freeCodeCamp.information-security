@@ -16,6 +16,14 @@ app.use(
 );
 app.use(helmet.dnsPrefetchControl());
 app.use(helmet.noCache());
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", 'trusted-cdn.com'],
+    },
+  })
+);
 
 module.exports = app;
 const api = require('./server.js');
